@@ -1,5 +1,6 @@
 (ns reframe-websocket.core
   (:require [re-frame.core :as reframe]
+            [cljs.reader :as reader]
             [transit-websocket-client.core :as websocket]
             [cljs.core.async :refer [<! >!]])
   (:require-macros [cljs.core.async.macros :refer [go]]))
@@ -17,6 +18,7 @@
  (fn [db [_ keys]]
    (get-in db keys)))
 
-(defn send-msg [msg store-location aws]
+(defn send-msg [msg store-path aws]
+  "Send msg to server, storing the response in store-path."
   (go (>! aws msg)
       (reframe/dispatch [:set store-path (reader/read-string (<! aws))])))

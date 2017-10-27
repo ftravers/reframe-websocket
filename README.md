@@ -52,7 +52,9 @@ handler called `:set` to be used like:
 
 ```clojure
     ;; Send a message, specify where to store the response
-    (reframe-websocket/send-msg "your message" [:store :path] my-aws)        
+    (let [my-message {:my-message "blah" :some-param 12345}
+          my-store-location [:store :path]]
+      (reframe-websocket/send-msg my-message my-store-location my-aws))        
     
     ;; retrieve the response
     @(reframe/subscribe [:get [:store :path]])
