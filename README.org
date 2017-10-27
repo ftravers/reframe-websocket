@@ -1,0 +1,46 @@
+* Setup
+
+Add to project:
+
+#+BEGIN_SRC clojure
+  :dependencies [;...
+                 [reframe-websocket "0.0.1"]]
+#+END_SRC
+
+#+BEGIN_SRC clojure
+  (ns ...
+    (:require [reframe-websocket.core :as reframe-websocket]))
+#+END_SRC
+
+* Reframe :set and :get event/subscription registration
+
+This will create an event handler called ~:get~ and a subscription
+handler called ~:set~ to be used like:
+
+#+BEGIN_SRC clojure
+  (reframe/dispatch-sync [:set [:some :path] "abc123"])
+  ;; sets the path [:some :path] to value "abc123" in the app-db
+  @(reframe/subscribe [:get [:some :path]])
+  ;; => "abc123"
+#+END_SRC
+
+* Send/Recv to Server
+
+** Define your endpoint
+
+#+BEGIN_SRC clojure
+  (def my-aws (reframe-websocket/async-websocket "ws://localhost:7890"))
+#+END_SRC
+
+** Send to Server
+
+#+BEGIN_SRC clojure
+  (send-msg "your message" my-aws)        ; Send a message
+
+  ;; define a function that will store the response from the server
+  (defn storage-fn [msg]
+    (reframe-dispatch-sync [:set [:some :other :path] msg]))
+
+  ;; Get the message from the server storing it with your storage function
+  (read-msg storage-fn my-aws)
+#+END_SRC
