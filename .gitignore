@@ -1,3 +1,4 @@
+figwheel_server.log
 /target
 /classes
 /checkouts
@@ -9,4 +10,4 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
-/figwheel_server.log
+/resources/public/js/*
