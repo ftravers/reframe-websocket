@@ -20,8 +20,6 @@ Add to project:
 
 ![](https://clojars.org/fentontravers/reframe-websocket/latest-version.svg)
 
-Add to namespace:
-
 ```clojure
     (ns ...
       (:require [reframe-websocket.core :as reframe-websocket]))
@@ -53,13 +51,13 @@ handler called `:set` to be used like:
 ## Send to Server<a id="sec-3-2" name="sec-3-2"></a>
 
 ```clojure
-    (send-msg "your message" my-aws)        ; Send a message
+    (reframe-websocket/send-msg "your message" my-aws)        ; Send a message
     
     ;; define a function that will store the response from the server
     (defn storage-fn [msg]
       (reframe-dispatch-sync [:set [:some :other :path] msg]))
     
     ;; Get the message from the server storing it with your storage function
-    (read-msg storage-fn my-aws)
+    (reframe-websocket/read-msg storage-fn my-aws)
 
 ```

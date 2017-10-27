@@ -2,10 +2,7 @@
 
 Add to project:
 
-#+BEGIN_SRC clojure
-  :dependencies [;...
-                 [reframe-websocket "0.0.1"]]
-#+END_SRC
+![](https://clojars.org/fentontravers/reframe-websocket/latest-version.svg)
 
 #+BEGIN_SRC clojure
   (ns ...
@@ -35,12 +32,12 @@ handler called ~:set~ to be used like:
 ** Send to Server
 
 #+BEGIN_SRC clojure
-  (send-msg "your message" my-aws)        ; Send a message
+  (reframe-websocket/send-msg "your message" my-aws)        ; Send a message
 
   ;; define a function that will store the response from the server
   (defn storage-fn [msg]
     (reframe-dispatch-sync [:set [:some :other :path] msg]))
 
   ;; Get the message from the server storing it with your storage function
-  (read-msg storage-fn my-aws)
+  (reframe-websocket/read-msg storage-fn my-aws)
 #+END_SRC
