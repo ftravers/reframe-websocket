@@ -1,6 +1,6 @@
 (defproject fentontravers/reframe-websocket "0.1.2-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Wraps basic reframe, websocket, and transit capabilities for communicating to a server."
+  :url "https://github.com/ftravers/reframe-websocket"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.9.0-alpha17"]
