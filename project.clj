@@ -1,4 +1,4 @@
-(defproject fentontravers/reframe-websocket "0.1.4-SNAPSHOT"
+(defproject fentontravers/reframe-websocket "0.1.4"
   :description "Wraps basic reframe, websocket, and transit capabilities for communicating to a server."
   :url "https://github.com/ftravers/reframe-websocket"
   :license {:name "Eclipse Public License"
