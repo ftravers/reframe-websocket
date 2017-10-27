@@ -18,11 +18,9 @@
 
 Add to project:
 
-```clojure
-    :dependencies [;...
-                   [reframe-websocket "0.0.1"]]
+![](https://clojars.org/fentontravers/reframe-websocket/latest-version.svg)
 
-```
+Add to namespace:
 
 ```clojure
     (ns ...
