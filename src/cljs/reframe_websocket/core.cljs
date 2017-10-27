@@ -22,3 +22,9 @@
   "Send msg to server, storing the response in store-path."
   (go (>! aws msg)
       (reframe/dispatch [:set store-path (reader/read-string (<! aws))])))
+
+(comment
+  (let [my-message {:my-message "blah" :some-param 12345}
+        my-store-location [:store :path]
+        my-aws (async-websocket "ws://localhost:7890")]
+    (send-msg my-message my-store-location my-aws)))
