@@ -51,13 +51,10 @@ handler called `:set` to be used like:
 ## Send to Server<a id="sec-3-2" name="sec-3-2"></a>
 
 ```clojure
-    (reframe-websocket/send-msg "your message" my-aws)        ; Send a message
+    ;; Send a message, specify where to store the response
+    (reframe-websocket/send-msg "your message" [:store :path] my-aws)        
     
-    ;; define a function that will store the response from the server
-    (defn storage-fn [msg]
-      (reframe-dispatch-sync [:set [:some :other :path] msg]))
-    
-    ;; Get the message from the server storing it with your storage function
-    (reframe-websocket/read-msg storage-fn my-aws)
+    ;; retrieve the response
+    @(reframe/subscribe [:get [:store :path]])
 
 ```
