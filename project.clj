@@ -1,4 +1,4 @@
-(defproject reframe-websocket "0.1.1-SNAPSHOT"
+(defproject fentontravers/reframe-websocket "0.1.1-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
