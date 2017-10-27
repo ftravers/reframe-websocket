@@ -1,6 +1,9 @@
 (ns reframe-websocket.core
-  (:require [re-frame.core :as reframe])
-  )
+  (:require [re-frame.core :as reframe]
+            [transit-websocket-client.core :as websocket]))
+
+(defn async-websocket [ws-url]
+  (websocket/async-websocket ws-url))
 
 (reframe/reg-event-db
  :set

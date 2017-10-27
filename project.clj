@@ -18,7 +18,7 @@
   :cljsbuild
   {:builds
    [{:id "dev"
-     :source-paths ["src/cljs" "src/cljc" "test"]
+     :source-paths ["src/cljs" "src/cljc" "test/cljs"]
      :figwheel {:on-jsload "reframe-websocket.core/on-js-reload"
                 :open-urls ["http://localhost:3449/index.html"]}
      :compiler {:main reframe-websocket.core
